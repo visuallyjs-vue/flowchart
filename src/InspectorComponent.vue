@@ -2,21 +2,13 @@
 import { ref } from "vue"
 import { LINE_WIDTHS } from "./constants.ts";
 
-const currentType = ref('')
+const current = ref(null)
 
-const renderEmptyContainer = () => {
-  currentType.value = ''
-}
-
-const refresh = (obj) => {
-  currentType.value = obj.objectType
-}
 </script>
 <template>
-  <InspectorComponent :refresh="refresh" class="vjs-flowchart-inspector"
-                      :renderEmptyContainer="renderEmptyContainer">
+  <InspectorComponent class="vjs-flowchart-inspector" v-model="current">
 
-    <div v-if="currentType==='Node'">
+    <div v-if="current?.objectType==='Node'">
       <div class="vjs-inspector-section">
         <div>Label</div>
         <input type="text" vjs-att="label" vjs-focus/>
@@ -45,7 +37,7 @@ const refresh = (obj) => {
 
     </div>
 
-    <div v-if="currentType==='Edge'">
+    <div v-if="current?.objectType==='Edge'">
       <div class="vjs-inspector-section">
         <div>Label</div>
         <input type="text" vjs-att="label"/>
