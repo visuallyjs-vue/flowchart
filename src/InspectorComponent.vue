@@ -42,20 +42,7 @@ const current = ref(null)
         <div>Label</div>
         <input type="text" vjs-att="label"/>
       </div>
-      <div class="vjs-inspector-section">
-        <div>Line style</div>
-        <EdgeTypePickerComponent propertyName="lineStyle"/>
-      </div>
-      <div class="vjs-inspector-section">
-        <div>Markers</div>
-        <EdgeTypePickerComponent propertyName="markers"/>
-      </div>
-      <div class="vjs-inspector-section">
-        <div>Line width</div>
-        <select vjs-att="lineWidth" vjs-datatype="integer">
-          <option v-for="lw in LINE_WIDTHS" :value="lw">{{lw}}</option>
-        </select>
-      </div>
+      <EdgePropertyMappingsInspector/>
     </div>
 
   </InspectorComponent>
